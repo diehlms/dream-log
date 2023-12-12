@@ -11,14 +11,14 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+    
+    - run: cd dream-log
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
         hugo-version: 'latest'
         extended: true
-
-    - run: cd dream-log 
 
     - name: Build
       run: hugo --minify
