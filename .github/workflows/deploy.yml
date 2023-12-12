@@ -18,6 +18,8 @@ jobs:
         hugo-version: 'latest'
         extended: true
 
+    - run: cd dream-log 
+
     - name: Build
       run: hugo --minify
 
