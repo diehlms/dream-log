@@ -28,7 +28,8 @@ jobs:
 
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v2
-      path: ./dream-log/public
+      with:
+        path: ./dream-log/public
 
     - name: Deploy Pages artifact
       uses: actions/deploy-pages@v2
