@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+permissions:
+  pages: write
+  id-token: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -22,8 +26,9 @@ jobs:
       run: hugo --minify
       working-directory: ./dream-log
 
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dream-log/public
+    - name: Upload Pages artifact
+      uses: actions/upload-pages-artifact@v2
+      path: ./dream-log/public
+
+    - name: Deploy Pages artifact
+      uses: actions/deploy-pages@v2
